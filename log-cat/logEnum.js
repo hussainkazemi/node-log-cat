@@ -11,10 +11,10 @@ const Colors = {
 }
 
 const Type = {
-    WARNING: 0,
-    ERROR: 1,
-    INFO: 2,
-    DEBUG: 3
+    WARNING: "WARNING",
+    ERROR: "ERROR",
+    INFO: "INFO",
+    DEBUG: "DEBUG"
 }
 
 module.exports = {

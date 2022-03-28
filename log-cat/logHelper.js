@@ -4,12 +4,13 @@ const {Colors, Type} = require('./logEnum');
 let keep = async function(message, type){
     const util = require('util');
     const fs = require('fs');
-    const path = './LogCat.txt';
+    const path = './LogCat.log';
     try{
+        message = addTag(message, type);
         await fs.openSync(path,'r');
-        await fs.appendFileSync(path, util.inspect(message),'utf-8')
+        await fs.appendFileSync(path, message,'utf-8')
     }catch(error){
-        await fs.writeFileSync(path, util.inspect(message));
+        await fs.writeFileSync(path, message);
     }
 }
 //for log warning message
@@ -32,7 +33,14 @@ let d = function(message){
 
 function addDateToMessage(message){
     const date = new Date();
-    const m = `${date.getFullYear()}-${date.getMonth()}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()} ${message}`;
+    const m = `${date.getFullYear()}-${date.getMonth()}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}-> ${message}`;
+    return m;
+}
+
+function addTag(messag, type){
+    let m;
+    m = addDateToMessage(messag);
+    m = `${type}\t${m}\n\n`
     return m;
 }
 
