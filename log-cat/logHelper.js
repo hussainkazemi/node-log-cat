@@ -30,28 +30,39 @@ module.exports = class LogHeloper {
 
     //for log warning message
     w(message){
-        message = this.addDateToMessage(message);
-        this.print(message, this.warningColor);
+        if(this.showWarning){
+            message = this.addDateToMessage(message);
+            this.print(message, this.warningColor);
+        }
     }
     //for log info message
     i(message){
-        message = this.addDateToMessage(message);
-        this.print(message, this.infoColor);    
+        if(Boolean(this.showInfo)){
+            message = this.addDateToMessage(message);
+            this.print(message, this.infoColor);    
+        }
     }
     e(message){
-        message = this.addDateToMessage(message);
-        this.print(message, this.errorColor);
+        if(Boolean(this.showError)){
+            message = this.addDateToMessage(message);
+            this.print(message, this.errorColor);
+        }
     }
 
     // for log debug message
     d(message){
-        message = this.addDateToMessage(message);
-        this.print(message, this.debugColor);
+        if(Boolean(this.showDebug)){
+            message = this.addDateToMessage(message);
+            this.print(message, this.debugColor);
+        }
     }
 
+    //for log success message
     s(message){
-        message = this.addDateToMessage(message);
-        this.print(message, this.successColor);
+        if(Boolean(this.showSuccess)){
+            message = this.addDateToMessage(message);
+            this.print(message, this.successColor);
+        }
     }
 
     addDateToMessage(message, force){
