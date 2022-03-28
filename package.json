@@ -6,8 +6,24 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "hussain_kazemi",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hussainkazemi/log-cat.git"
+  },
+  "keywords": [
+    "nodejs",
+    "console",
+    "print",
+    "log",
+    "logger",
+    "logging"
+  ],
+  "author": "kazemih7287@gmail.com hussain_kazemi",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hussainkazemi/log-cat/issues"
+  },
+  "homepage": "https://github.com/hussainkazemi/log-cat#readme",
   "dependencies": {
     "colors": "^1.4.0",
     "util": "^0.12.4"
