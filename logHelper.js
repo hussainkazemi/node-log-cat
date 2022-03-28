@@ -1,6 +1,6 @@
 const color = require('colors');
 const {Colors} = require('./logEnum');
-module.exports = class LogHeloper {
+module.exports = class LogHelper {
     constructor(configObject){
         this.path         = configObject.logPath;
         this.showWarning  = configObject.showWarning;
