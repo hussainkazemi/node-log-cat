@@ -1,0 +1,15 @@
+{
+  "name": "log-cat",
+  "version": "1.0.0",
+  "description": "now you can have logcat in JS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "hussain_kazemi",
+  "license": "MIT",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "util": "^0.12.4"
+  }
+}
