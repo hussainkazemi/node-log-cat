@@ -7,11 +7,13 @@ module.exports = class LogHeloper {
         this.showError    = configObject.showError;
         this.showDebug    = configObject.showDebug;
         this.showInfo     = configObject.showInfo;
+        this.showSuccess  = configObject.showSuccess;
         this.printDate    = configObject.printDate;
         this.warningColor = configObject.warningColor;
         this.infoColor    = configObject.infoColor;
         this.debugColor   = configObject.debugColor;
-        this.errorColor   =  configObject.errorColor
+        this.errorColor   = configObject.errorColor;
+        this.successColor = configObject.successColor;
     }
 
     keep = async function(message, type){
@@ -47,10 +49,14 @@ module.exports = class LogHeloper {
         this.print(message, this.debugColor);
     }
 
+    s(message){
+        message = this.addDateToMessage(message);
+        this.print(message, this.successColor);
+    }
 
-    addDateToMessage(message){
+    addDateToMessage(message, force){
         let m;
-        if (Boolean(this.printDate)){
+        if (Boolean(this.printDate)|| Boolean(force)){
             const date = new Date();
             m = `${date.getFullYear()}-${date.getMonth()}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}-> ${message}`;
         }else {
@@ -61,7 +67,7 @@ module.exports = class LogHeloper {
     
     addTag(messag, type){
         let m;
-        m = this.addDateToMessage(messag);
+        m = this.addDateToMessage(messag, true);
         m = `${type}\t${m}\n\n`
         return m;
     }

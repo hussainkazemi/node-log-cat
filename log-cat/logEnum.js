@@ -14,7 +14,8 @@ const Type = {
     WARNING: "WARNING",
     ERROR: "ERROR",
     INFO: "INFO",
-    DEBUG: "DEBUG"
+    DEBUG: "DEBUG",
+    SUCCESS :"SUCCESS"
 }
 
 module.exports = {
