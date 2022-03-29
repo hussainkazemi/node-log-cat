@@ -78,7 +78,7 @@ module.exports = class LogHelper {
     
     _addTag(messag, type){
         let m;
-        m = this.addDateToMessage(messag, true);
+        m = this._addDateToMessage(messag, true);
         m = `${type}\t${m}\n\n`
         return m;
     }
