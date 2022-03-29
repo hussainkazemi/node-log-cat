@@ -32,20 +32,20 @@ module.exports = class LogHelper {
     w(message){
         if(this.showWarning){
             message = this._addDateToMessage(message);
-            this.print(message, this.warningColor);
+            this._print(message, this.warningColor);
         }
     }
     //for log info message
     i(message){
         if(Boolean(this.showInfo)){
             message = this._addDateToMessage(message);
-            this.print(message, this.infoColor);    
+            this._print(message, this.infoColor);    
         }
     }
     e(message){
         if(Boolean(this.showError)){
             message = this._addDateToMessage(message);
-            this.print(message, this.errorColor);
+            this._print(message, this.errorColor);
         }
     }
 
@@ -53,7 +53,7 @@ module.exports = class LogHelper {
     d(message){
         if(Boolean(this.showDebug)){
             message = this._addDateToMessage(message);
-            this.print(message, this.debugColor);
+            this._print(message, this.debugColor);
         }
     }
 
@@ -61,7 +61,7 @@ module.exports = class LogHelper {
     s(message){
         if(Boolean(this.showSuccess)){
             message = this._addDateToMessage(message);
-            this.print(message, this.successColor);
+            this._print(message, this.successColor);
         }
     }
 

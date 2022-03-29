@@ -1,6 +1,6 @@
 {
   "name": "node-log-cat",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "Comfortable and usefull logger tool for nodejs",
   "main": "index.js",
   "scripts": {
@@ -25,7 +25,6 @@
   },
   "homepage": "https://github.com/hussainkazemi/log-cat#readme",
   "dependencies": {
-    "colors": "^1.4.0",
-    "util": "^0.12.4"
+    "colors": "^1.4.0"
   }
 }
