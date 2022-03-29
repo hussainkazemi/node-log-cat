@@ -1,5 +1,5 @@
 {
-  "name": "log-cat",
+  "name": "node-log-cat",
   "version": "1.0.0",
   "description": "Comfortable and usefull logger tool for nodejs",
   "main": "index.js",
