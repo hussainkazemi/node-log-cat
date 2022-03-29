@@ -1,7 +1,7 @@
 {
   "name": "log-cat",
   "version": "1.0.0",
-  "description": "now you can have logcat in JS",
+  "description": "Comfortable and usefull logger tool for nodejs",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
