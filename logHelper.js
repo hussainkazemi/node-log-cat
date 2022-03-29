@@ -20,7 +20,7 @@ module.exports = class LogHelper {
         const fs = require('fs');
         const path = this.path;
         try{
-            message = this.addTag(message, type);
+            message = this._addTag(message, type);
             await fs.openSync(path,'r');
             await fs.appendFileSync(path, message,'utf-8');
         }catch(error){
@@ -31,20 +31,20 @@ module.exports = class LogHelper {
     //for log warning message
     w(message){
         if(this.showWarning){
-            message = this.addDateToMessage(message);
+            message = this._addDateToMessage(message);
             this.print(message, this.warningColor);
         }
     }
     //for log info message
     i(message){
         if(Boolean(this.showInfo)){
-            message = this.addDateToMessage(message);
+            message = this._addDateToMessage(message);
             this.print(message, this.infoColor);    
         }
     }
     e(message){
         if(Boolean(this.showError)){
-            message = this.addDateToMessage(message);
+            message = this._addDateToMessage(message);
             this.print(message, this.errorColor);
         }
     }
@@ -52,7 +52,7 @@ module.exports = class LogHelper {
     // for log debug message
     d(message){
         if(Boolean(this.showDebug)){
-            message = this.addDateToMessage(message);
+            message = this._addDateToMessage(message);
             this.print(message, this.debugColor);
         }
     }
@@ -60,12 +60,12 @@ module.exports = class LogHelper {
     //for log success message
     s(message){
         if(Boolean(this.showSuccess)){
-            message = this.addDateToMessage(message);
+            message = this._addDateToMessage(message);
             this.print(message, this.successColor);
         }
     }
 
-    addDateToMessage(message, force){
+    _addDateToMessage(message, force){
         let m;
         if (Boolean(this.printDate)|| Boolean(force)){
             const date = new Date();
@@ -76,14 +76,14 @@ module.exports = class LogHelper {
         return m;
     }
     
-    addTag(messag, type){
+    _addTag(messag, type){
         let m;
         m = this.addDateToMessage(messag, true);
         m = `${type}\t${m}\n\n`
         return m;
     }
     
-    print(message, messageColor){
+    _print(message, messageColor){
         var printedMessage;
         switch(messageColor){
             case Colors.blue:
