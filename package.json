@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hussainkazemi/log-cat.git"
+    "url": "git+https://github.com/hussainkazemi/node-log-cat.git"
   },
   "keywords": [
     "nodejs",
@@ -21,7 +21,7 @@
   "author": "kazemih7287@gmail.com hussain_kazemi",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/hussainkazemi/log-cat/issues"
+    "url": "https://github.com/hussainkazemi/node-log-cat/issues"
   },
   "homepage": "https://github.com/hussainkazemi/log-cat#readme",
   "dependencies": {
