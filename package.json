@@ -1,6 +1,6 @@
 {
   "name": "node-log-cat",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Comfortable and usefull logger tool for nodejs",
   "main": "index.js",
   "scripts": {
