@@ -5,6 +5,7 @@ This is a useful tool for recording logs on the console or keeping log in a file
 * you can keep reports on your own file path.
 * you can filter logs in console by message type.
 * you can enable/disable print date on console.
+* you can check variable type.
 
 
 **Installation**
@@ -27,12 +28,14 @@ const config = {
         showDebug: true,             // enable/disable print Debug massges.
         showInfo: true,              // enable/disable print Info massges. 
         showSuccess: true,           // enable/disable print Success massges. 
+        showTypof: true,             // enable/disable print variable type.
         printDate: true,             // if printDate be true add current date befor message
         warningColor: Colors.yellow, // set Warning message color here.
         infoColor: Colors.blue,      // set Info message color here.
         debugColor: Colors.cyan,     // set Debug message color here.
         errorColor: Colors.red,      // set Error message color here.   
         successColor: Colors.green   // set Success message color here.
+        typeofColor: Colors.gray     // set Type of variable color here.
 }
 
 const Log = new LogHelper(config);
@@ -87,4 +90,18 @@ WARNING	2022-2-29 18:26:51-> In publishing and graphic design, Lorem ipsum is a 
 
 ```
 
+for print type of variable:
+##### in index.js
+```javascript
+const Log = require('./config');
 
+let my_var = {
+        foo: "bar"
+}
+Log.t(my_var);
+
+```
+#### output 
+```
+2022-3-2 20:7:47-> object
+```
