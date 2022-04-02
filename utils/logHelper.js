@@ -1,5 +1,5 @@
 const color = require('colors');
-const {Colors} = require('./logEnum');
+const {Colors, VariabeType} = require('./logEnum');
 module.exports = class LogHelper {
     constructor(configObject){
         this.path         = configObject.logPath;
@@ -75,14 +75,24 @@ module.exports = class LogHelper {
         }
     }
 
+    _getType(variable){
+        return typeof variable;
+    }
+
     _addDateToMessage(message, force){
         let m;
+       
         if (Boolean(this.printDate)|| Boolean(force)){
             const date = new Date();
             m = `${date.getFullYear()}-${date.getMonth()}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}-> ${message}`;
         }else {
             m = message;
         }
+         //convert object to string-----------
+         const messageType =  this._getType(message);
+         if(messageType == VariabeType.OBJECT || messageType == VariabeType.ARRAY)
+             m = JSON.stringify(m);
+         //−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−//    
         return m;
     }
     

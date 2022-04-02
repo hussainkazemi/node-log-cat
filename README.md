@@ -34,7 +34,7 @@ const config = {
         infoColor: Colors.blue,      // set Info message color here.
         debugColor: Colors.cyan,     // set Debug message color here.
         errorColor: Colors.red,      // set Error message color here.   
-        successColor: Colors.green   // set Success message color here.
+        successColor: Colors.green,   // set Success message color here.
         typeofColor: Colors.gray     // set Type of variable color here.
 }
 
