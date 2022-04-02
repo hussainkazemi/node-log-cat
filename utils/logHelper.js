@@ -8,12 +8,14 @@ module.exports = class LogHelper {
         this.showDebug    = configObject.showDebug;
         this.showInfo     = configObject.showInfo;
         this.showSuccess  = configObject.showSuccess;
+        this.showTypeof   = configObject.showTypeof;
         this.printDate    = configObject.printDate;
         this.warningColor = configObject.warningColor;
         this.infoColor    = configObject.infoColor;
         this.debugColor   = configObject.debugColor;
         this.errorColor   = configObject.errorColor;
         this.successColor = configObject.successColor;
+        this.typeofColor  = configObject.typeofColor;
     }
 
     keep = async function(message, type){
@@ -62,6 +64,14 @@ module.exports = class LogHelper {
         if(Boolean(this.showSuccess)){
             message = this._addDateToMessage(message);
             this._print(message, this.successColor);
+        }
+    }
+
+    t(variable){
+        if(Boolean(this.showTypeof)){
+            let message = typeof variable;
+            message = this._addDateToMessage(message);
+            this._print(message, this.typeofColor);
         }
     }
 
