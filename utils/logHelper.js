@@ -113,6 +113,8 @@ module.exports = class LogHelper {
             case Colors.red: 
                 printedMessage = color.red(message);
             break;
+            default: 
+                printedMessage = message;
             
         }
         console.log(printedMessage);
