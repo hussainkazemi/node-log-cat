@@ -1,4 +1,4 @@
-## what is ``node log cat``
+## What is ``node log cat``?
 This is a useful tool for recording logs on the console or keeping log in a file.
 
 * you can set custom color for each message type.
