@@ -18,7 +18,15 @@ const Type = {
     SUCCESS :"SUCCESS"
 }
 
+const VariabeType ={
+    NUMBER: "number",
+    OBJECT: "object",
+    STRING: "string",
+    ARRAY: "array"
+}
+
 module.exports = {
     Colors,
-    Type
+    Type,
+    VariabeType
 }

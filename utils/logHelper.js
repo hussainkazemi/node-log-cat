@@ -1,5 +1,5 @@
 const color = require('colors');
-const {Colors} = require('./logEnum');
+const {Colors, VariabeType} = require('./logEnum');
 module.exports = class LogHelper {
     constructor(configObject){
         this.path         = configObject.logPath;
@@ -8,12 +8,14 @@ module.exports = class LogHelper {
         this.showDebug    = configObject.showDebug;
         this.showInfo     = configObject.showInfo;
         this.showSuccess  = configObject.showSuccess;
+        this.showTypeof   = configObject.showTypeof;
         this.printDate    = configObject.printDate;
         this.warningColor = configObject.warningColor;
         this.infoColor    = configObject.infoColor;
         this.debugColor   = configObject.debugColor;
         this.errorColor   = configObject.errorColor;
         this.successColor = configObject.successColor;
+        this.typeofColor  = configObject.typeofColor;
     }
 
     keep = async function(message, type){
@@ -65,14 +67,32 @@ module.exports = class LogHelper {
         }
     }
 
+    t(variable){
+        if(Boolean(this.showTypeof)){
+            let message = typeof variable;
+            message = this._addDateToMessage(message);
+            this._print(message, this.typeofColor);
+        }
+    }
+
+    _getType(variable){
+        return typeof variable;
+    }
+
     _addDateToMessage(message, force){
         let m;
+       
         if (Boolean(this.printDate)|| Boolean(force)){
             const date = new Date();
             m = `${date.getFullYear()}-${date.getMonth()}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}-> ${message}`;
         }else {
             m = message;
         }
+         //convert object to string-----------
+         const messageType =  this._getType(message);
+         if(messageType == VariabeType.OBJECT || messageType == VariabeType.ARRAY)
+             m = JSON.stringify(m);
+         //−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−//    
         return m;
     }
     
