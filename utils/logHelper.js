@@ -81,19 +81,18 @@ module.exports = class LogHelper {
 
     _addDateToMessage(message, force){
         let m;
-       
+        //convert object to string-----------
+         const messageType =  this._getType(message);
+         if(messageType == VariabeType.OBJECT || messageType == VariabeType.ARRAY)
+             message = JSON.stringify(message);
+         //−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−// 
         if (Boolean(this.printDate)|| Boolean(force)){
             const date = new Date();
             m = `${date.getFullYear()}-${date.getMonth()}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}-> ${message}`;
         }else {
             m = message;
         }
-         //convert object to string-----------
-         const messageType =  this._getType(message);
-         if(messageType == VariabeType.OBJECT || messageType == VariabeType.ARRAY)
-             m = JSON.stringify(m);
-         //−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−//    
-        return m;
+	return m;
     }
     
     _addTag(messag, type){
